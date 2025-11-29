@@ -126,7 +126,7 @@ configure_zsh() {
 #
 # Homebrew:
 #   - System tools and dependencies (gnupg)
-#   - Tools not available in mise (language servers, btop)
+#   - Tools not available in mise (btop)
 #   - Tools with GitHub rate limit issues via mise (dust, grex)
 #   - Always uses latest versions
 # ============================================================================
@@ -172,7 +172,7 @@ install_and_configure_mise() {
 
     # Install core languages first (warnings about go: packages are expected)
     echo "→ Installing core languages (go, rust, bun, zig)..."
-    mise use -g go rust bun zig
+    mise use -g go zig rust cargo-binstall bun
     echo "✓ Installed core languages"
 
     # Activate mise now that core languages are installed
@@ -194,7 +194,6 @@ install_homebrew_packages() {
         gum
         gnupg
         btop      # Not available via mise on some platforms
-        tokei     # Platform asset issues
     )
 
     brew install -q "${deps[@]}"
@@ -591,11 +590,6 @@ main() {
     if [[ "$INSTALL_CLAUDE" == true ]]; then
         install_claude_cli
         configure_claude_instructions
-    fi
-
-    # Language servers installation
-    if [[ "$INSTALL_LANGUAGE_SERVERS" == true ]]; then
-        install_language_servers
     fi
 
     gum style --border rounded --padding "1 1" --margin "1 1" --foreground 2 "✓ Setup complete!"

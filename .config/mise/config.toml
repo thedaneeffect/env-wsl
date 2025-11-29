@@ -2,58 +2,48 @@
 # See: https://mise.jdx.dev/configuration.html
 
 [tools]
-# Core languages & runtimes (installed first)
-bun = "latest"
-go = "latest"
-rust = "latest"
-zig = "latest"
-
-# CLI utilities
+"cargo:tokei" = "latest"
+"cargo:procs" = "latest"
+"go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
+"go:github.com/go-delve/delve/cmd/dlv" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+"golangci-lint-langserver"="latest"
+"npm:bash-language-server" = "latest"
+"npm:typescript-language-server" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
+"npm:yaml-language-server" = "latest"
+"ubi:tealdeer-rs/tealdeer" = "latest"
+air = "latest"
+ast-grep = "latest"
 bat = "latest"
+bun = "latest"
 delta = "latest"
+dust = "latest"
 eza = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
 glow = "latest"
+go = "latest"
+gofumpt = "latest"
+golangci-lint = "latest"
+golines = "latest"
+grex = "latest"
+helix = "latest"
 jq = "latest"
+marksman = "latest"
 ripgrep = "latest"
+rust = "latest"
 sd = "latest"
 starship = "latest"
+taplo = "latest"
+usql = "latest"
 yq = "latest"
 zellij = "latest"
-zoxide = "latest"
-
-# Keep in Homebrew (platform issues or needed early):
-# btop - not available for macOS arm64 via mise
-dust = "latest"
-grex = "latest"
-# tokei - asset not found for macOS
-"ubi:tealdeer-rs/tealdeer" = "latest"
-
-# Development tools
-ast-grep = "latest"
-helix = "latest"
-marksman = "latest"
-golangci-lint = "latest"
-"golangci-lint-langserver"="latest"
-taplo = "latest"
+zig = "latest"
 zls = "latest"
-usql = "latest"
-air = "latest"
-golines = "latest"
-gofumpt = "latest"
-
-# Language servers via npm: backend
-"npm:typescript-language-server" = "latest"
-"npm:bash-language-server" = "latest"
-"npm:yaml-language-server" = "latest"
-"npm:vscode-langservers-extracted" = "latest"
-
-# Go development tools via go: backend
-"go:golang.org/x/tools/gopls" = "latest"
-"go:github.com/go-delve/delve/cmd/dlv" = "latest"
-"go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
+zoxide = "latest"
+tlrc = "latest"
 
 [env]
 # Project-specific environment variables
@@ -76,3 +66,9 @@ experimental = true
 
 # Legacy version file support (.nvmrc, .node-version, etc.)
 legacy_version_file = true
+
+[settings.npm]
+bun = true
+
+[settings.cargo]
+binstall = true
