@@ -44,6 +44,7 @@ zig = "latest"
 zls = "latest"
 zoxide = "latest"
 tlrc = "latest"
+cargo-binstall = "latest"
 
 [env]
 # Project-specific environment variables
