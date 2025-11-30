@@ -431,10 +431,13 @@ install_secrets_cli() {
         return 0
     fi
 
+    # Ensure target directory exists
     mkdir -p "$HOME/.local/bin"
-    cp "$secrets_script" "$secrets_dest"
-    chmod +x "$secrets_dest"
-    echo "✓ Installed secrets CLI"
+
+    # Symlink secrets CLI
+    if symlink_config "$secrets_script" "$secrets_dest"; then
+        echo "✓ Symlinked secrets CLI"
+    fi
 }
 
 # Configure secrets (prompt for URL and passphrase)
